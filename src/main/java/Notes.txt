@@ -1,0 +1,31 @@
+JDBC=Java database connection.
+
+7 steps for JDBC:
+1. Import the package.
+2. a.Load the driver.
+   b.Register the driver.
+3. Establish the connection.
+4. Create the statement.
+5. Execute the query.
+6. Process the result.
+7. close.
+
+1. import java.sql.*;
+2. a. Copy the driver from mvn repository for a RDBMS.
+   b. Class.forName("com.mySQL.jdbc.Driver");
+3. Connection con=DriverManager.getConnection("{URL}","{User_name}","{Password}");
+4. Statement st=con.CreateStatement();
+5. ResultSet rs=st.executeQuery(query);
+6. while(rs.next())
+   {
+    System.out.println(rs.getInt(1)+ " " +rs.getString(2));
+   }
+7. st.close();
+8. con.close();
+
+
+Class.forName()
+- It load the class defination in memory.
+- Consist of a static block which invokes driver object.
+
+DAO design pattern seperates database from service layer.
